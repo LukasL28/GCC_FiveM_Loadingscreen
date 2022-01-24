@@ -24,6 +24,10 @@
 
 Loading Screen for FiveM Server, used by [GCC](https://gamecodercorner.com/)
 
+Tis Project is not intended to be used! It is just part of my Portfolio.
+
+Developped: 2019
+
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@LukasL28](https://github.com/LukasL28) - Initial work
