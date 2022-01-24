@@ -1,0 +1,433 @@
+<html>
+
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <audio id="my_audio" src="muke.mp3" loop="loop"></audio>
+  <div class="backdrop">
+    <div class="top">
+
+      <div class="flex-item">
+        <h1 class="GCChidden" title="GCChidden"><span class="GCC" style="color: gray;">R</span></h1>
+        <h1 class="ml10">
+          <span class="text-wrapper">
+            <span class="letters"> ole</span>
+          </span>
+        </h1>
+        <h1 class="GCChidden" title="GCChidden"><span class="GCC" style="color: gray;">P</span></h1>
+        <h1 class="ml101">
+          <span class="text-wrapper1">
+            <span class="letters1"> lay</span>
+          </span>
+        </h1>
+        <h1 class="GCChidden" title="GCChidden"><span class="GCC" style="color: gray;">C</span></h1>
+        <h1 class="ml102">
+          <span class="text-wrapper2">
+            <span class="letters2"> orner</span>
+          </span>
+        </h1>
+
+      </div>
+      <h2 title="FiveM Projekt">FiveM Projekt</h2>
+      <div class="Regeln_wrapper">
+        <div class="Regeln">
+          <p>Regeln:</p>
+          <p>1. Ingame VoiceChat muss Aktiviert sein</p>
+          <p>2. An Allgemeine Rolplay Regeln Halten</p>
+          <p>Regeln können mit F7 angesehen werden! </p>
+        </div>
+      </div>
+      <header class="intro">
+        <div class="intro-slideshow">
+          <img alt="Bild1" src="./Bild1.jpg">
+          <img alt="Bild2" src="./Bild2.jpg">
+          <img alt="Bild3" src="./Bild3.jpg">
+          <img alt="Bild4" src="./Bild4.jpg">
+          <div class="intro-header">
+          </div>
+      </header>
+    </div>
+
+    <div class="letni">
+     
+      <h2 title="GCC">GCC</h2>
+      <h3></h3>
+      <div class="loadbar">
+        <div class="thingy"></div>
+      </div>
+      <span class="txt-type" data-wait="3000"
+        data-words='["Stay at Home!", "GameCoderCorner", "Loadingscreen by Lukas L.", "Noch ein GCC Projekt XD", "Jetzt hat es Sich Ausgekatzt!!", "AsgeBeed", "Clemi: Mudafuga", "Tim: SchinaWitzl", "Clemi: Abspigebur" ]'>Dies
+        ist ein Error wenn Sie das sehen hat ein Dev verkackt</span>
+    </div>
+    <div class="bottom">
+      <div id="gradient">
+      </div>
+    </div>
+  </div>
+
+  <script src="./animation.js"></script>
+
+
+  <script>
+    //******************************************
+    // Musik (By Lukas L.)
+    //******************************************
+    // Lade Musik
+    window.onload = function () {
+      setTimeout(function () {
+        document.getElementById("my_audio").play();
+        // anfangs Delay
+      }, 800);
+    }
+  </script>
+
+  <script>
+    //******************************************
+    // Splash Animation (By Lukas L.) (Credit: Traversy Media)
+    //******************************************
+    class TypeWriter {
+      constructor(txtElement, words, wait = 3000) {
+        this.txtElement = txtElement;
+        this.words = words;
+        this.txt = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
+        this.type();
+        this.isDeleting = false;
+      }
+
+      type() {
+        // Current index of word
+        const current = this.wordIndex % this.words.length;
+        // Get full text of current word
+        const fullTxt = this.words[current];
+
+        // Check if deleting
+        if (this.isDeleting) {
+          // Remove char
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          // Add char
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        // Insert txt into element
+        this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+        // Initial Type Speed
+        let typeSpeed = 100;
+
+        if (this.isDeleting) {
+          typeSpeed /= 2;
+        }
+
+        // If word is complete
+        if (!this.isDeleting && this.txt === fullTxt) {
+          // Make pause at end
+          typeSpeed = this.wait;
+          // Set delete to true
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          // Move to next word
+          this.wordIndex++;
+          // Pause before start typing
+          typeSpeed = 300;
+        }
+
+        setTimeout(() => this.type(), typeSpeed);
+      }
+    }
+
+
+    // Init On DOM Load
+    document.addEventListener('DOMContentLoaded', init);
+
+    // Init App
+    function init() {
+      const txtElement = document.querySelector('.txt-type');
+      const words = JSON.parse(txtElement.getAttribute('data-words'));
+      const wait = txtElement.getAttribute('data-wait');
+      // Init TypeWriter
+      new TypeWriter(txtElement, words, wait);
+    }
+  </script>
+
+  <script>
+    //******************************************
+    // GCC animation (By Lukas L.) (Credit: tobiasahlin)
+    // Link (https://tobiasahlin.com/moving-letters/#10)
+    //******************************************
+    // Wrap every letter in a span
+
+    var textWrapper = document.querySelector('.ml10 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    var textWrapper1 = document.querySelector('.ml101 .letters1');
+    textWrapper1.innerHTML = textWrapper1.textContent.replace(/\S/g, "<span class='letter1'>$&</span>");
+    var textWrapper2 = document.querySelector('.ml102 .letters2');
+    textWrapper2.innerHTML = textWrapper2.textContent.replace(/\S/g, "<span class='letter2'>$&</span>");
+
+    anime.timeline({
+        loop: true
+      })
+      // Game Einfliegen
+      .add({
+        targets: '.ml10 .letter',
+        rotateY: [-90, 0],
+        duration: 800,
+        delay: (el, i) => 45 * i
+      })
+      //Coder Einfliegen
+      .add({
+        targets: '.ml101 .letter1',
+        rotateY: [-90, 0],
+        duration: 800,
+        delay: (el, i) => 45 * i
+      })
+      //Corner Einfliegen
+      .add({
+        targets: '.ml102 .letter2',
+        rotateY: [-90, 0],
+        duration: 800,
+        delay: (el, i) => 45 * i
+      })
+
+      //Corner Ausfliegen
+      //Coder Ausfliegen
+      //Game Ausfliegen
+      .add({
+        delay: 1000,
+        targets: '.ml102, .ml101, .ml10',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 500
+      });
+  </script>
+
+  <script>
+    //******************************************
+    // Slideshow (By Lukas L.) (Credit: Coding Journey)
+    //******************************************
+
+    const slideshowImages = document.querySelectorAll(".intro-slideshow img");
+
+    const nextImageDelay = 5000;
+    let currentImageCounter = 0; // setting a variable to keep track of the current image (slide)
+
+    // slideshowImages[currentImageCounter].style.display = "block";
+    slideshowImages[currentImageCounter].style.opacity = 1;
+
+    setInterval(nextImage, nextImageDelay);
+
+    function nextImage() {
+      // slideshowImages[currentImageCounter].style.display = "none";
+      slideshowImages[currentImageCounter].style.opacity = 0;
+
+      currentImageCounter = (currentImageCounter + 1) % slideshowImages.length;
+
+      // slideshowImages[currentImageCounter].style.display = "block";
+      slideshowImages[currentImageCounter].style.opacity = 1;
+    }
+  </script>
+
+  <script>
+    //******************************************
+    // Dev script (Sollte nicht im Loadingscreen sein!!)
+    //******************************************
+    /*
+    // HTML Code
+     <input id="button" type="submit" name="button" onclick="myFunction();" value="enter" />
+
+
+
+    // Click Counter
+
+    var thisCount = 0;
+    var count = 0;
+    var colorcontroller = 0;
+    document.getElementById('button').onclick = function () {
+
+      console.log(thisCount);
+      console.log(count);
+      console.log(colorcontroller);
+      console.log("Click");
+      ++thisCount;
+      colorcontroller = thisCount / count;
+      count = 10;
+      document.querySelector('.thingy').style.left = '0%';
+      document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+      if (colorcontroller < 0.4) {
+
+
+        document.querySelector('.thingy').style.background = 'red';
+
+      } else
+      if (colorcontroller < 0.7) {
+        document.querySelector('.thingy').style.background = 'orange';
+
+      } else
+      if (colorcontroller > 0.7) {
+
+        document.querySelector('.thingy').style.background = 'green';
+
+      };
+
+
+    }
+
+    */
+  </script>
+
+
+  <script type="text/javascript">
+    //******************************************
+    // Preset
+    //******************************************
+    // this will actually restart the loading bar a lot, making multiple loading bars is an exercise to the reader... for now.
+    // for a set of possible events, see https://github.com/citizenfx/fivem/blob/master/code/components/loading-screens-five/src/LoadingScreens.cpp
+    var count = 0;
+    var thisCount = 0;
+
+    const handlers = {
+      startInitFunctionOrder(data) {
+        count = data.count;
+        ++thisCount;
+        colorcontroller = thisCount / count;
+        document.querySelector('.thingy').style.left = '0%';
+        document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+        if (colorcontroller < 0.4) {
+
+
+          document.querySelector('.thingy').style.background = 'red';
+
+        } else
+        if (colorcontroller < 0.7) {
+          document.querySelector('.thingy').style.background = 'orange';
+
+        } else
+        if (colorcontroller > 0.7) {
+
+          document.querySelector('.thingy').style.background = 'green';
+
+        };
+
+
+      },
+
+      count = 0;
+      thisCount = 0;
+
+      initFunctionInvoking(data) {
+        count = data.count;
+        ++thisCount;
+        colorcontroller = thisCount / count;
+        document.querySelector('.thingy').style.left = '0%';
+        document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+        if (colorcontroller < 0.4) {
+
+
+          document.querySelector('.thingy').style.background = 'red';
+
+        } else
+        if (colorcontroller < 0.7) {
+          document.querySelector('.thingy').style.background = 'orange';
+
+        } else
+        if (colorcontroller > 0.7) {
+
+          document.querySelector('.thingy').style.background = 'green';
+
+        };
+      },
+
+      count = 0;
+      thisCount = 0;
+
+      startDataFileEntries(data) {
+        count = data.count;
+        ++thisCount;
+        colorcontroller = thisCount / count;
+        document.querySelector('.thingy').style.left = '0%';
+        document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+        if (colorcontroller < 0.4) {
+
+
+          document.querySelector('.thingy').style.background = 'red';
+
+        } else
+        if (colorcontroller < 0.7) {
+          document.querySelector('.thingy').style.background = 'orange';
+
+        } else
+        if (colorcontroller > 0.7) {
+
+          document.querySelector('.thingy').style.background = 'green';
+
+        };
+
+      },
+
+      count = 0;
+      thisCount = 0;
+
+      performMapLoadFunction(data) {
+        count = data.count;
+        ++thisCount;
+        colorcontroller = thisCount / count;
+        document.querySelector('.thingy').style.left = '0%';
+        document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+        if (colorcontroller < 0.4) {
+
+
+          document.querySelector('.thingy').style.background = 'red';
+
+        } else
+        if (colorcontroller < 0.7) {
+          document.querySelector('.thingy').style.background = 'orange';
+
+        } else
+        if (colorcontroller > 0.7) {
+
+          document.querySelector('.thingy').style.background = 'green';
+
+        };
+      },
+
+      count = 0;
+      thisCount = 0;
+
+      onLogLine(data) {
+        count = data.count;
+        ++thisCount;
+        colorcontroller = thisCount / count;
+        document.querySelector('.thingy').style.left = '0%';
+        document.querySelector('.thingy').style.width = ((thisCount / count) * 100) + '%';
+        if (colorcontroller < 0.4) {
+
+
+          document.querySelector('.thingy').style.background = 'red';
+
+        } else
+        if (colorcontroller < 0.7) {
+          document.querySelector('.thingy').style.background = 'orange';
+
+        } else
+        if (colorcontroller > 0.7) {
+
+          document.querySelector('.thingy').style.background = 'green';
+
+        };
+      }
+    };
+
+    window.addEventListener('message', function (e) {
+      (handlers[e.data.eventName] || function () {})(e.data);
+    });
+  </script>
+</body>
+
+</html>

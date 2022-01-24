@@ -1,0 +1,275 @@
+/*
+By Lukas L.
+*/
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+.backdrop {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+#gradient {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+
+  height: 25%;
+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+@font-face {
+  font-family: 'BankGothic';
+  src: url('bankgothic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.letni {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 10%;
+
+  z-index: 5;
+
+  color: #fff;
+
+  font-family: "Segoe UI";
+}
+
+.letni p {
+  font-size: 22px;
+
+  margin-left: 3px;
+
+  margin-top: 0px;
+}
+
+.letni h2,
+.letni h3 {
+
+  font-family: BankGothic;
+
+  text-transform: uppercase;
+
+  font-size: 50px;
+
+  margin: 0px;
+  text-shadow: 2px 2px black;
+  display: inline-block;
+
+
+}
+
+.GCC {
+  position: relative;
+  z-index: 2;
+  visibility: visible;
+}
+
+.GCChidden {
+  top: 15px;
+  visibility: visible;
+}
+
+.top {
+  padding-top: 15px;
+  z-index: 2;
+  display: block;
+  color: #fff;
+  text-align: center;
+  top: 7%;
+  left: 5%;
+  right: 5%;
+}
+
+.top h1 {
+  position: relative;
+  z-index: 2;
+  font-family: BankGothic;
+  font-size: 60px;
+  text-align: center;
+  margin: 0px;
+  text-shadow: 2px 2px black;
+}
+
+.top h2 {
+  z-index: 2;
+  font-family: BankGothic;
+  font-size: 40px;
+  text-align: center;
+  margin: 0px;
+  text-shadow: 2px 2px black;
+  color: #ddd;
+}
+
+
+.txt-type>.txt {
+  border-right: 0.2rem solid #777;
+}
+
+.txt-type {
+  font-size: 40px;
+  text-shadow: 2px 2px black;
+}
+
+
+.intro-slideshow img {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* relative to nearest positioned ancestor and not nearest block-level ancestor - alternatively: width: 100vw; */
+  height: 100%;
+  /* relative to nearest positioned ancestor and not nearest block-level ancestor - alternatively: height: 100vh; */
+  object-fit: cover;
+  z-index: -1;
+  /* filter: brightness(50%); */
+  /* 0% black, 100% original image, values > 100% are allowed for brighter than original image. */
+  /* display: none; */
+  opacity: 0;
+  transition: opacity 0.75s ease-in-out;
+}
+
+/* .intro-slideshow img:first-child {
+  display: block;
+  opacity: 1;
+} */
+
+.flex-item {
+  display: flex;
+  flex-flow: row nowrap;
+  height: auto;
+  justify-content: center;
+}
+
+
+.ml10 {
+  top: 5px;
+  z-index: -1;
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.ml10 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+
+.ml101 {
+
+  top: 5px;
+
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.ml101 .text-wrapper1 {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml101 .letter1 {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+
+.ml102 {
+  top: 5px;
+
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.ml102 .text-wrapper2 {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml102 .letter2 {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+
+/*
+loading bar
+*/
+
+.loadbar {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 40px;
+  width: auto;
+}
+
+.thingy {
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: red;
+  height: 30px;
+  width: 5%;
+  opacity: 75%;
+}
+
+
+.Regeln {
+background-color: black;
+font-size: 30px;
+color: white;
+opacity: 100%;
+width: auto;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 40px;
+opacity: 75%;
+padding-top: 5px;
+padding-bottom: 5px;
+border-radius: 40px;
+}
